@@ -1,0 +1,8 @@
+bases:
+  - ../../../base
+patchesStrategicMerge:
+  - order-deploy.yaml
+resources:
+  - order-dapr-pubsub.yaml
+  - order-dapr-statestore-redis.yaml
+  - istio-network.yaml

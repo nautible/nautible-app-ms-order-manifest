@@ -1,0 +1,9 @@
+bases:
+  - ../../../base
+patchesStrategicMerge:
+  - order-deploy.yaml
+resources:
+  - ./order-localstack.yaml
+  - ./order-redis.yaml
+  - ./order-dapr-pubsub.yaml
+  - ./order-dapr-statestore.yaml

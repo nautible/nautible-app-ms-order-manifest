@@ -1,0 +1,26 @@
+apiVersion: dapr.io/v1alpha1
+kind: Component
+metadata:
+  name: order-statestore
+  namespace: nautible-app
+  labels:
+    app.kubernetes.io/name: order-statestore
+    app.kubernetes.io/instance: order-statestore
+    app.kubernetes.io/version: 1.0.0
+    app.kubernetes.io/component: statestore
+    app.kubernetes.io/part-of: nautible
+    app.kubernetes.io/managed-by: manual
+spec:
+  type: state.redis
+  version: v1
+  metadata:
+  - name: redisHost
+    secretKeyRef:
+      name: secret-nautible-app-order
+      key: DAPR_STATESTORE_HOST
+  - name: redisPassword
+    secretKeyRef:
+      name: secret-nautible-app-order
+      key: DAPR_STATESTORE_PW
+  - name: enableTLS
+    value: true

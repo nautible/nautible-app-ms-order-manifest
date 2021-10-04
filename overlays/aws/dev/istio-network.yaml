@@ -1,0 +1,61 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: nautible-app-order-gateway
+  namespace: nautible-app
+  labels:
+    app.kubernetes.io/name: nautible-app-order-gateway
+    app.kubernetes.io/instance: nautible-app-order-gateway
+    app.kubernetes.io/version: 1.0.0
+    app.kubernetes.io/component: gateway
+    app.kubernetes.io/part-of: nautible
+    app.kubernetes.io/managed-by: manual
+spec:
+  selector:
+    istio: ingressgateway # use istio default controller
+  servers:
+  - port:
+      number: 80
+      name: http
+      protocol: HTTP
+    hosts:
+    - "*"
+---
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: nautible-app-order-vs
+  namespace: nautible-app
+  labels:
+    app.kubernetes.io/name: nautible-app-order-vs
+    app.kubernetes.io/instance: nautible-app-order-vs
+    app.kubernetes.io/version: 1.0.0
+    app.kubernetes.io/component: virtualservice
+    app.kubernetes.io/part-of: nautible
+    app.kubernetes.io/managed-by: manual
+spec:
+  hosts:
+  - "*"
+  gateways:
+  - nautible-app-order-gateway
+  http:
+  - match:
+    - uri:
+        prefix: /api/v1.0/nautible-app/order
+    rewrite:
+      uri: "/order"
+    route:
+    - destination:
+        host: nautible-app-order
+        port:
+          number: 8080
+  - match:
+    - uri:
+        prefix: /api/v1.0/nautible-app/cart
+    rewrite:
+      uri: "/cart"
+    route:
+    - destination:
+        host: nautible-app-order
+        port:
+          number: 8080
