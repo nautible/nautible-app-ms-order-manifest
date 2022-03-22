@@ -2,7 +2,7 @@ apiVersion: dapr.io/v1alpha1
 kind: Component
 metadata:
   name: order-statestore
-  namespace: nautible-app
+  namespace: nautible-app-ms
   labels:
     app.kubernetes.io/name: order-statestore
     app.kubernetes.io/instance: order-statestore
