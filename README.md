@@ -1,2 +1,2 @@
-# nautible-app-order-manifest project
+# nautible-app-ms-order-manifest project
 注文サービスのマニフェストを管理するプロジェクト

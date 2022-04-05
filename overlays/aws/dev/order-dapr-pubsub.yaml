@@ -2,7 +2,7 @@ apiVersion: dapr.io/v1alpha1
 kind: Component
 metadata:
   name: order-pubsub
-  namespace: nautible-app
+  namespace: nautible-app-ms
   labels:
     app.kubernetes.io/name: order-pubsub
     app.kubernetes.io/instance: order-pubsub
