@@ -2,7 +2,7 @@ apiVersion: dapr.io/v1alpha1
 kind: Component
 metadata:
   name: order-statestore
-  namespace: nautible-app
+  namespace: nautible-app-ms
   labels:
     app.kubernetes.io/name: order-statestore
     app.kubernetes.io/instance: order-statestore
@@ -16,3 +16,9 @@ spec:
   metadata:
   - name: redisHost
     value: order-statestore.vpc.nautible-dev.com:6379
+  - name: redisPassword
+    secretKeyRef:
+      name: secret-nautible-app-ms-order
+      key: ELASTICACHE_PW
+  - name: enableTLS
+    value: true

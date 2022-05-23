@@ -1,15 +1,15 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nautible-app-order
-  namespace: nautible-app
+  name: nautible-app-ms-order
+  namespace: nautible-app-ms
 spec:
   replicas: 1
   template:
     spec:
       containers:
-      - name: nautible-app-order
-        image: nautibledevacr.azurecr.io/nautible-app-order:latest
+      - name: nautible-app-ms-order
+        image: nautibledevacr.azurecr.io/nautible-app-ms-order:latest
         env:
         - name: QUARKUS_PROFILE
           value: azure-local-dev

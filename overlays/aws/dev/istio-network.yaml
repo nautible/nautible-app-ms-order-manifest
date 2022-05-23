@@ -1,11 +1,11 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: Gateway
 metadata:
-  name: nautible-app-order-gateway
-  namespace: nautible-app
+  name: nautible-app-ms-order-gateway
+  namespace: nautible-app-ms
   labels:
-    app.kubernetes.io/name: nautible-app-order-gateway
-    app.kubernetes.io/instance: nautible-app-order-gateway
+    app.kubernetes.io/name: nautible-app-ms-order-gateway
+    app.kubernetes.io/instance: nautible-app-ms-order-gateway
     app.kubernetes.io/version: 1.0.0
     app.kubernetes.io/component: gateway
     app.kubernetes.io/part-of: nautible
@@ -24,11 +24,11 @@ spec:
 apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
 metadata:
-  name: nautible-app-order-vs
-  namespace: nautible-app
+  name: nautible-app-ms-order-vs
+  namespace: nautible-app-ms
   labels:
-    app.kubernetes.io/name: nautible-app-order-vs
-    app.kubernetes.io/instance: nautible-app-order-vs
+    app.kubernetes.io/name: nautible-app-ms-order-vs
+    app.kubernetes.io/instance: nautible-app-ms-order-vs
     app.kubernetes.io/version: 1.0.0
     app.kubernetes.io/component: virtualservice
     app.kubernetes.io/part-of: nautible
@@ -37,25 +37,25 @@ spec:
   hosts:
   - "*"
   gateways:
-  - nautible-app-order-gateway
+  - nautible-app-ms-order-gateway
   http:
   - match:
     - uri:
-        prefix: /api/v1.0/nautible-app/order
+        prefix: /api/v1.0/nautible-app-ms/order
     rewrite:
       uri: "/order"
     route:
     - destination:
-        host: nautible-app-order
+        host: nautible-app-ms-order
         port:
           number: 8080
   - match:
     - uri:
-        prefix: /api/v1.0/nautible-app/cart
+        prefix: /api/v1.0/nautible-app-ms/cart
     rewrite:
       uri: "/cart"
     route:
     - destination:
-        host: nautible-app-order
+        host: nautible-app-ms-order
         port:
           number: 8080

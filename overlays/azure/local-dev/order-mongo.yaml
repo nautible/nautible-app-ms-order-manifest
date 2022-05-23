@@ -3,7 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: order-mongodb
-  namespace: nautible-app
+  namespace: nautible-app-ms
   labels:
     app.kubernetes.io/name: order-mongodb
     app.kubernetes.io/instance: order-mongodb
@@ -63,7 +63,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: order-mongodb
-  namespace: nautible-app
+  namespace: nautible-app-ms
   labels:
     app.kubernetes.io/name: order-mongodb
     app.kubernetes.io/instance: order-mongodb

@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: order-redis
-  namespace: nautible-app
+  namespace: nautible-app-ms
   labels:
     app.kubernetes.io/name: order-redis
     app.kubernetes.io/instance: order-redis
@@ -41,7 +41,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: order-redis
-  namespace: nautible-app
+  namespace: nautible-app-ms
   labels:
     app.kubernetes.io/name: order-redis
     app.kubernetes.io/instance: order-redis
