@@ -1,0 +1,3 @@
+resources:
+  - ./order-localstack.yaml
+  - ./order-redis.yaml

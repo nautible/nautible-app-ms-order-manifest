@@ -3,7 +3,5 @@ bases:
 patchesStrategicMerge:
   - order-deploy.yaml
 resources:
-  - ./order-mongo.yaml
-  # - ./order-redis.yaml
   - ./order-dapr-pubsub.yaml
   - ./order-dapr-statestore.yaml
