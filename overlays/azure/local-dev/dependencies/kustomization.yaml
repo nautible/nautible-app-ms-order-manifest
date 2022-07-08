@@ -1,0 +1,4 @@
+bases:
+resources:
+  - ./order-mongo.yaml
+  - ./order-redis.yaml
