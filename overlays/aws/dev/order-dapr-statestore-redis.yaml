@@ -19,6 +19,6 @@ spec:
   - name: redisPassword
     secretKeyRef:
       name: secret-nautible-app-ms-order
-      key: ELASTICACHE_PW
+      key: DAPR_STATESTORE_PW
   - name: enableTLS
     value: true
