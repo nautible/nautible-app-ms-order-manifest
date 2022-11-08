@@ -15,7 +15,7 @@ spec:
   version: v1
   metadata:
   - name: redisHost
-    value: order-statestore.vpc.nautible-dev.com:6379
+    value: order-statestore.vpc.nautible-ca-dev.com:6379
   - name: redisPassword
     secretKeyRef:
       name: secret-nautible-app-ms-order
