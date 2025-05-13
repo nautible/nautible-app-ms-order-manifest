@@ -9,7 +9,7 @@ spec:
     spec:
       containers:
       - name: nautible-app-ms-order
-        image: nautibledevacr.azurecr.io/nautible-app-ms-order:bd0a0f6d117fb01732973318da9edbf15f803ffe
+        image: nautibledevacr.azurecr.io/nautible-app-ms-order:0a3baa25b9262f65934f91ada29bee39e4149e1d
         env:
         - name: QUARKUS_PROFILE
           value: azure-dev
